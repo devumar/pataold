@@ -1,0 +1,26 @@
+
+
+<p>
+  <strong>Name:</strong>
+  <%= @landlord.fname %>  <%= @landlord.oname %>
+</p>
+<table class="table">
+    <tbody>
+        <tr>
+          <th>Property</th>
+          <th>Estate</th>
+            <th>Plot Number</th>
+            <th>Group</th>
+            <th>Commission</th>
+        </tr>
+        <tr>
+          <th><%= @landlord.properties.map(&:estate).join(", ") %></th>
+            <td><%= @landlord.properties.map(&:id).join(", ") %></td>
+            <td><%= @landlord.properties.map(&:plot_no).join(", ") %></td>
+            <td><%= @landlord.properties.map(&:field_officer).join(", ") %></td>
+            <td><%= @landlord.properties.map(&:commission).join(", ") %></td>
+        </tr>
+        
+    
+    </tbody>
+</table>

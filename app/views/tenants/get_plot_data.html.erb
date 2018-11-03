@@ -1,0 +1,7 @@
+<%if @unit.blank?%>
+	No unit available
+<%else%>
+	<% @unit.each do |u| %>
+		<option value="<%=u.id%>"><%="#{u.unit_name} #{u.htype}"%> </option>
+	<% end %>
+<% end %>

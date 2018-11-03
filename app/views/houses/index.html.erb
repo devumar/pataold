@@ -1,0 +1,28 @@
+<div class="table-responsive">
+                                <table id="houses" class="table table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Unit Name</th>
+                                            <th>Type</th>
+                                            <th>Rent </th>
+                                            
+                                              <th>Status</th>
+                                              
+                                        </tr> 
+                                    </thead>
+                                    <tbody>
+     <% @houses.status.each do |h| %>
+                                        <tr>
+                          <td><%= h.unit_name %></td>
+                          <td><%= h.htype %></td>
+                          <td><%= h.rent_payable %></td>
+                          <td><%= h.status %></td>    
+                          
+<t
+                                        </tr>
+                             <% end %> 
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.table-responsive -->

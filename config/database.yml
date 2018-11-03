@@ -1,0 +1,10 @@
+
+
+development:
+  adapter: postgresql
+  host: localhost
+  username: postgres
+  password: postgres
+  database: patacomm_dev
+  pool: 5
+  timeout: 5000

@@ -1,0 +1,36 @@
+<div id="filterrific_results">
+
+  <div>
+    <%= page_entries_info landlords # provided by will_paginate %>
+  </div>
+
+  
+<table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Account No.</th>
+                                            <th>Names</th>
+                                            <th>Phone</th>
+                                            <th>Email</th>
+                                              <th>Status</th>
+                                             <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                         <% @landlords.each do |l| %> 
+                                        <tr>
+                          <td><%= l.id %></td>
+                          <td><%= l.fname %>  <%= l.oname %></td>
+                          <td><%= l.phone %></td>
+                          <td><%= l.email %></td>    
+                          <td><%= l.status %></td>
+                          <td><%= link_to 'Show', @landlord %></td>
+                          <td><%= link_to 'Edit', edit_landlord_path(Landlord) %></td>
+                                        </tr>
+                             <% end %> 
+                                        
+                                    </tbody>
+                                </table>
+</div>
+
+<%= will_paginate landlords # provided by will_paginate %>

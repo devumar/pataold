@@ -1,0 +1,7 @@
+<%= form_for @tenant do |f| %>
+  <% if params[:all].nil? %>
+    <%= render 'tenants/steps/current_step', f: f %>
+  <% else %>
+    <%= render 'tenants/steps/all_steps', f: f %>
+  <% end %>
+<% end %>

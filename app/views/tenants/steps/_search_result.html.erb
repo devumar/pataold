@@ -1,0 +1,15 @@
+<% if @houses.present? %>
+  <% @houses.each_with_index do |house, index| %>
+    <tr class="success">
+      <td><%= index + 1 %></td>
+      <td><%=  house.unit_name %></td>
+      <td><%=  house.unit_type %></td>
+      <td><%=  house.rent_payable %></td>
+      <td><input type="checkbox" name="houses[]" value="<%= house.id %>"></td>
+    </tr>
+  <% end %>
+<% else %>
+  <tr class="success">
+    <td colspan="5">There is no vacant houses</td>
+  </tr>
+<% end %>

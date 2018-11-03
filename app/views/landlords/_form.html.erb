@@ -1,0 +1,8 @@
+
+<%= form_for build_landlord(@landlord) do |f| %>
+  <% if params[:all].nil? %>
+    <%= render 'landlords/steps/current_step', f: f %>
+  <% else %>
+    <%= render 'landlords/steps/all_steps', f: f %>
+  <% end %>
+<% end %>

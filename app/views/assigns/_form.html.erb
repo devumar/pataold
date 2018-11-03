@@ -1,0 +1,25 @@
+<%= form_for(@assign, :url => (@assign.new_record? ? assign_house_index_path: assign_house_index_path(@assign)), :html =>{class: "form-horizontal", role: "form", multipart: true})  do |f| %>
+
+  <div class="panel-body nested-fields">
+    <div class="row">
+      <div class="col-lg-12">
+          <div class="col-lg-4">
+            <div class="form-group">
+                <label>House</label>
+                 <%= f.select :house_id , House.all.collect{ |u| [u.unit_name, u.id] }, {include_blank: false, include_hidden: false}, {:class => 'form-control', multiple: true}%>
+             </div>
+            </div>
+          </div>
+          <%= f.hidden_field :tenant_id, :value => params[:id] %>
+
+          <div class="form-group ">
+             <%= f.submit  class: "btn btn-primary" %>
+        </div>
+      </div>
+        
+    </div>
+  </div>
+ 
+<% end %>
+
+

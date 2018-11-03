@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+<h4>Import Form Excel</h4>
+ <%= form_tag @import_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import", :class=> "btn"%>
+<% end %>
+
+<h1>Listing receipts</h1>
+<table>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>month</th>
+      <th>unit</th>
+      <th>property</th>
+      <th>Receipt</th>
+      <th>mode</th>
+      <th>date</th>
+      <th>date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @receipts.each do |r| %>
+      <tr>
+        <td><%= r.id %></td>
+        <td><%= r.month %></td>
+        <td><%= r.unit_name %></td>
+        <td><%= r.property_id %></td>
+          <td><%= r.receipt_no %></td>
+        <td><%= r.created_at %></td>
+          <td><%= r.updated_at %></td>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_receipt_path(user) %></td>
+        <td><%= link_to 'Destroy', receipt, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

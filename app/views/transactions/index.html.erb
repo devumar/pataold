@@ -1,0 +1,37 @@
+<table id="transactions" class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>Account No.</th>
+      <th>Names</th>
+      <th>Property</th>
+      <th>Unit</th>
+      <th>Phone</th>
+      <th>Paid</th>
+      <th>Date Last paid</th>
+      <th>Action</th>
+      <th>Click for</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @transactions.each do |t|  %>
+      <tr>
+        <td><%= t.tenant_id %></td>
+        <td><%= t.tenant.full_name  if t.tenant.present? %></td>
+        <td><%= t.month %></td>
+        <td><%= t.amount %></td>
+        <td><%= t.receipt_no %></td>
+        <td><%= t.mode %></td>
+        <td><%= t.created_at.strftime("%Y-%m-%d") %></td>
+        <td><%= link_to 'Show', tenant_path(t), method: :get %></td>
+        <td><%= link_to 'Edit', edit_tenant_path(t), method: :get %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<script>
+  $(document).ready(function() {
+    $('#transactions').dataTable();
+  });
+</script>
+        

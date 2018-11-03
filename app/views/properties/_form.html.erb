@@ -1,0 +1,71 @@
+<!-- # <%= form_for @property do |f| %>
+ 
+#   <h3>Houses</h3>
+#   <%= f.fields_for :houses do |h| %>
+#     <%= render 'house_fields', f: h %>
+#   <% end %>
+
+#  <div class="links">
+#   <%= link_to_add_association 'Add Houses', f, :houses, class: 'btn btn-primary btn-xs' %>
+#                       </div>
+#   <%= f.submit %>
+# <% end %> -->
+
+
+<div class="row">
+  <div class="col-md-8 offset-md-2">
+    <%= form_for(@property, :url => (@property.new_record? ? properties_path: properties_path(@property)), :html =>{class: "form-horizontal", role: "form", multipart: true})  do |cf| %>
+          <div class="form-group">
+              <label for="Landlord Names" class="col-sm-3 col-form-label"> Landlord </label>
+              <div class="col-sm-9">
+               <%= cf.select :landlord_id , Landlord.all.collect{ |u| [u.fname, u.id] }, {}, {:class => 'form-control'}%>
+            </div>
+          </div>
+          <div class="form-group row">
+                <label for="Other Names" class="col-sm-3 col-form-label"> Estate</label>
+                <div class="col-sm-9">
+                  <%= cf.text_field :estate , class: "form-control", required: "required" %>
+                </div>
+                </div> 
+
+          <div class="form-group row">
+                <label for="Other Names" class="col-sm-3 col-form-label"> Plot Number</label>
+                <div class="col-sm-9">
+                  <%= cf.text_field :plot_no , class: "form-control", required: "required" %>
+                </div>
+                </div> 
+
+          <div class="form-group row">
+                <label for="Other Names" class="col-sm-3 col-form-label"> Field Group</label>
+                <div class="col-sm-9">
+                  <%= cf.text_field :field_officer , class: "form-control", required: "required" %>
+                </div>
+                </div> 
+
+          <div class="form-group row">
+                <label for="Other Names" class="col-sm-3 col-form-label"> Plot Name</label>
+                <div class="col-sm-9">
+                  <%= cf.text_field :plot_name , class: "form-control", required: "required" %>
+                </div>
+                </div> 
+
+          <div class="form-group row">
+                <label for="Other Names" class="col-sm-3 col-form-label"> Town</label>
+                <div class="col-sm-9">
+                  <%= cf.text_field :town , class: "form-control", required: "required" %>
+                </div>
+                </div> 
+          <div class="form-group row">
+                <label for="Other Names" class="col-sm-3 col-form-label"> Commission</label>
+                <div class="col-sm-9">
+                  <%= cf.text_field :commission , class: "form-control", required: "required" %>
+                </div>
+          </div> 
+          <div class="form-group ">
+            <%= cf.submit  class: "btn btn-primary" %>
+          </div>
+    <% end %>
+  </div>
+</div>
+
+

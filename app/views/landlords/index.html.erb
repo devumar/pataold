@@ -1,0 +1,55 @@
+
+ <!-- /.panel-heading -->
+                       
+                            <div class="table-responsive">
+                                <table id="landlords" class="table table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Account No.</th>
+                                            <th>Names</th>
+                                            <th>Phone</th>
+                                            <th>Email</th>
+                                              <th>Status</th>
+                                             <th>Action</th>
+                                             
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+     <% @landlords.each do |l| %>
+                                        <tr>
+                          <td><%= l.id %></td>
+                          <td><%= l.fname %>  <%= l.oname %></td>
+                          <td><%= l.phone %></td>
+                          <td><%= l.email %></td>    
+                          <td><%= l.status %></td>
+                        
+                          <td>
+                           <div class="btn-group btn-group-xs" role="group" aria-label="..."> 
+  				<%= link_to 'New', new_landlord_path %> 
+  			        <%= link_to 'Edit', edit_landlord_path(Landlord), :class => "btn" %> 
+                                <%= link_to 'Show', landlords_path, :class => "btn"%> 	
+				
+
+				
+			</div>
+                         </td>
+
+                                        </tr>
+                             <% end %> 
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.table-responsive -->   
+                       
+
+<br /> 
+
+
+
+<script>
+$(document).ready(function() {
+$('#landlords').dataTable();
+
+} );
+</script>

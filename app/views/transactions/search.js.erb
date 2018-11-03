@@ -1,0 +1,15 @@
+<% if @transaction.present? %>
+  #$("#trans-account-no").val("<%= @tenant.id %>");
+  $("#trans-date").val("<%= @transaction.date %>");
+  $("#trans-full-name").val("<%= @tenant.full_name %>");
+  $("#trans-plot").val("<%= @transaction.property.plot_no if (@transaction.property.present?) %>");
+  $("#trans-unit-name").val("<%= @tenant.assigns.first.unit_name if (@tenant.assigns.present?) %>");
+  $("#trans-rent-payable").val("<%= @tenant.houses.order(:id).last.rent_payable if @tenant.houses.present? %>");
+  $("#trans-current-month").val("<%= @transaction.month %>");
+  $("#trans-arrears").val("<%= @tenant.arrears.last.amount if @tenant.arrears.last %>");
+  $("#trans-total").val("<%= @transaction.amount %>");
+  $("#trans-last-payment").val("<%= @transaction.date %>");
+  $("#trans-late-fee").val("<%= (@transaction.amount.to_f * 0.10) if (@transaction.date.strftime("%d").to_i > 12 ) %>");
+<% else %>
+  $("#trans-account-no, #trans-date, #trans-full-name, #trans-plot, #trans-unit-name, #trans-rent-payable, #trans-current-month, #trans-arrears, #trans-total, #trans-last-payment, #trans-late-fee").val("");
+<% end %>

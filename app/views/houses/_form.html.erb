@@ -1,0 +1,37 @@
+<%= form_for(@house, :url => (@house.new_record? ? houses_path: houses_path(@house)), :html =>{class: "form-horizontal", role: "form", multipart: true})  do |f| %>
+
+  <div class="panel-body nested-fields">
+    <div class="row">
+      <div class="col-lg-12">
+          <div class="col-lg-4">
+            <div class="form-group">
+              <label>Unit Name</label>
+              <%= f.text_field :unit_name , class: "form-control" %>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="form-group">
+                <label>Type</label>
+                 <%= f.select :unit_type, options_for_select(Unittype.all.map(&:house_type)),{prompt: "Select Unit Type"}, {class: "form-control"} %>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="form-group">
+              <label>Rent Payable</label>
+              <%= f.text_field :rent_payable , class: "form-control" %>
+            </div>
+          </div>
+          <%= f.hidden_field :property_id, :value => params[:id] %>
+
+          <div class="form-group ">
+             <%= f.submit  class: "btn btn-primary" %>
+        </div>
+      </div>
+        
+    </div>
+  </div>
+ 
+<% end %>
+
+

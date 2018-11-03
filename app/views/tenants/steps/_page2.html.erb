@@ -1,0 +1,41 @@
+<div class="col-md-12">
+  <div class="col-md-6">
+    <%= text_field_tag :query, params[:query], placeholder: "Search Recipes", id: "search-tenants" %>
+    <div id = "search_house" class="btn btn-default" > Search </div>
+    <!--<form class="form-horizontal">-->
+      <div class="panel-body">
+        <div class="form-group">
+          <%= f.fields_for :house do |cf| %>
+
+            <label>Type</label>
+             <%= cf.select :house_ids , House.all.collect{ |u| [u.unit_name, u.id] }, {include_blank: false, include_hidden: false}, {:class => 'form-control', multiple: true}%>
+             </div>
+             <% end %>
+        <!-- <div class="table-responsive bordered">
+          <table class="table table-striped table-bordered table-hover">
+            <thead>
+              <tr>
+                <th>Unit Name</th>
+                <th>Rent Payable</th>
+                <th>Type</th>
+                <th> Assign House</th>
+              </tr>
+            </thead>
+            <tbody id="search-results">
+              <% units = House.all  %>
+              <% units.each do  |unit| %>
+              <tr>
+                <td> <%= unit.unit_name  %></td>
+                <td> <%= unit.rent_payable %></td>
+                <td><%= unit.unit_type  %></td>
+                  <td><%= f.check_box :house_ids %> </td>
+                </div>
+              <% end %>
+             </tr> 
+            </tbody>
+          </table> -->
+        </div>
+      </div>
+    <!--</form>-->
+  </div>
+</div>

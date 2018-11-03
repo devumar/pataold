@@ -1,0 +1,31 @@
+
+<div class="table-responsive">    
+    <table id="assigns" class=".table table-striped table-bordered">
+      <thead>
+        <tr>
+           <th> Tenant Name</th>
+          <th>House</th>
+          <th>Plot No.</th>
+          <th>LandLord Name</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @assigns.each do |p| %>
+        <tr>
+          <td><%= p.tenant.fname %></td>    
+          <td><%= p.house.unit_name %></td>    
+          <td><%= p.house.property.plot_name %></td>
+          <td><%= p.house.property.landlord.fname %></td>
+                 
+         <% end %> 
+      </tbody> 
+    </table>
+</div>
+
+<script>
+$(document).ready(function() {
+$('#assigns').dataTable(); 
+bjQueryUI: true
+} );
+</script>
